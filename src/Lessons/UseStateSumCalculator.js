@@ -5,7 +5,21 @@ export default function UseStateSumCalculator() {
   const [num2, setNum2] = useState(0);
   const [result, setResult] = useState(0);
   const addTwoNum = () => {
-    setResult(parseInt(num1) + parseInt(num2));
+    console.log(num1,'',num2)
+      if(!num2){
+        console.log('first')
+        setResult(parseInt(num1));
+      }
+      else if(!num1){
+        
+        console.log('second')
+        setResult(parseInt(num2));
+      }
+      else{
+        
+        console.log('third')
+        setResult(parseInt(num1) + parseInt(num2));
+      }
   };
   return (
     <>
@@ -17,6 +31,7 @@ export default function UseStateSumCalculator() {
         onChange={(e) => {
           setNum1(e.target.value);
         }}
+        required
       />
       <input
         className="inputs"
@@ -25,6 +40,7 @@ export default function UseStateSumCalculator() {
         onChange={(e) => {
           setNum2(e.target.value);
         }}
+        required
       />
       <button className="submitBtn" onClick={addTwoNum}>
         Add Two num
