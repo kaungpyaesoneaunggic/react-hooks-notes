@@ -3,12 +3,11 @@ import React, { useEffect, useState } from "react";
 export default function UseStateCalculator() {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
-  const [operator, setOperator] = useState("+");
+  const [operator, setOperator] = useState();
   const [result, setResult] = useState("waiting");
 
   const handleOperatorChange = (operator) => {
     setOperator(operator);
-    addTwoNum();
   };
   useEffect(() => {
     addTwoNum();
