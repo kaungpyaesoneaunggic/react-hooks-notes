@@ -10,7 +10,10 @@ export default function UseStateCalculator() {
     setOperator(operator);
     addTwoNum();
   };
-  
+  useEffect(() => {
+    addTwoNum();
+  }, [operator]);
+
   const addTwoNum = () => {
     if (!num2) {
       setResult(parseInt(num1));
