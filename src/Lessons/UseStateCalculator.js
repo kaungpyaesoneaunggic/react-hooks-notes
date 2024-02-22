@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function UseStateCalculator() {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
-  const [operator, setOperator] = useState();
+  const [operator, setOperator] = useState('+');
   const [result, setResult] = useState("waiting");
 
   const handleOperatorChange = (operator) => {
@@ -11,15 +11,15 @@ export default function UseStateCalculator() {
   };
   useEffect(() => {
     addTwoNum();
-  }, [operator]);
+  }, [num1,num2,operator]);
 
   const addTwoNum = () => {
-    if (!num2) {
+    if (!num2 && num1) {
       setResult(parseInt(num1));
-    } else if (!num1) {
+    } else if (!num1 && num2) {
       setResult(parseInt(num2));
-    } else if (isNaN(num1) || isNaN(num2)) {
-      setResult("please input valid value");
+    } else if (isNaN(num1) && isNaN(num2)|| !num1 && !num2) {
+      setResult(':)')
     } else {
       switch (operator) {
         case "+":
