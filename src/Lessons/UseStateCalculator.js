@@ -23,7 +23,7 @@ export default function UseStateCalculator() {
     } else {
       switch (operator) {
         case "+":
-          setResult(parseInt(num1) + parseInt(num2));
+          setResult(parseInt(num1) + parseInt(num2) +' (added)');
           break;
         case "-":
           if (num1 < num2) {
@@ -31,10 +31,10 @@ export default function UseStateCalculator() {
             alert("This is not allowed");
             break;
           }
-          setResult(parseInt(num1) - parseInt(num2));
+          setResult(parseInt(num1) - parseInt(num2)+ ' (subtracted)');
           break;
         case "*":
-          setResult(parseInt(num1) * parseInt(num2));
+          setResult(parseInt(num1) * parseInt(num2)+' (multiplied)');
           break;
         case "/":
           if (num2 == 0) {
@@ -42,7 +42,7 @@ export default function UseStateCalculator() {
             alert("This is not allowed");
             break;
           }
-          setResult(parseInt(num1) / parseInt(num2));
+          setResult(parseInt(num1) / parseInt(num2)+ ' (divided)');
           break;
       }
     }
@@ -71,17 +71,19 @@ export default function UseStateCalculator() {
         step="0.001"
         required
       />
-      <div className="inputs m-0">
-        <button className="btn btn-primary w-25" value={"+"} onClick={()=>handleOperatorChange('+')}>
+      <div className="inputs m-0 justify-content-between">
+      <div>
+      </div>
+        <button className="btn btn-primary col-sm-3" value={"+"} onClick={()=>handleOperatorChange('+')}>
         +
         </button>
-        <button className="btn btn-primary  w-25" value={"-"} onClick={()=>handleOperatorChange('-')}>
+        <button className="btn btn-primary  col-sm-3" value={"-"} onClick={()=>handleOperatorChange('-')}>
           -
         </button>
-        <button className="btn btn-primary  w-25" value={"*"} onClick={()=>handleOperatorChange('*')}>
+        <button className="btn btn-primary  col-sm-3" value={"*"} onClick={()=>handleOperatorChange('*')}>
           x
         </button>
-        <button className="btn btn-primary  w-25" value={"/"} onClick={()=>handleOperatorChange('/')}>
+        <button className="btn btn-primary  col-sm-3" value={"/"} onClick={()=>handleOperatorChange('/')}>
           &#247;
         </button>
       </div>
